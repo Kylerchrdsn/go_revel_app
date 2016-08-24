@@ -10,17 +10,50 @@
   .filler {
     margin-top: 100%;
   }
-  
+  .game {
+    margin-top: 30px;
+  }
+	.game-menu {
+    padding-top: 30px;
+  }
+  .main {
+    margin: 0;
+    padding: 0;
+  }
+  .on {
+    background: #253494;
+  }
 </style>
 
 <div class="container main">
-      {{range .rows}}
-        <div class="row">
-          {{range $cols}}
-            <div class="col-md-1 border">
-              <div class="filler"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1 game-menu">
+				<ul class="nav nav-pills nav-stacked game-menu-custom">
+					<li><a href="#">Custom</a></li>
+				</ul>
+      </div>
+      <div class="col-md-11">
+        <div class="container game">
+          {{range .rows}}
+            <div class="row">
+              {{range $cols}}
+                <div class="col-md-1 border game-cell">
+                  <div class="filler"></div>
+                </div>
+              {{end}}
             </div>
           {{end}}
         </div>
-      {{end}}
+      </div>
+    </div>
+  </div>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+  $('.game-menu-custom').click(function() {
+    $('.game-cell').unbind('click').click(function() {
+      $(this).toggleClass('on')
+    })
+  })
+</script>
