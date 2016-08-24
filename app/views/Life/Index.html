@@ -1,0 +1,26 @@
+{{set . "title" "Life"}}
+{{template "header.html" .}}
+{{template "menu.html" .}}
+{{$cols := .cols}}
+
+<style type="text/css" media="all">
+  .border {
+    border: solid 1px #dcdcdc;
+  }
+  .filler {
+    margin-top: 100%;
+  }
+  
+</style>
+
+<div class="container main">
+      {{range .rows}}
+        <div class="row">
+          {{range $cols}}
+            <div class="col-md-1 border">
+              <div class="filler"></div>
+            </div>
+          {{end}}
+        </div>
+      {{end}}
+</div>
