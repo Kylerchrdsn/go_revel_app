@@ -28,17 +28,19 @@
 <div class="container main">
   <div class="container">
     <div class="row">
+      <!-- The game menu  -->
       <div class="col-md-1 game-menu">
-				<ul class="nav nav-pills nav-stacked game-menu-custom">
-					<li><a href="#">Custom</a></li>
+				<ul class="nav nav-pills nav-stacked">
+					<li class="game-menu-custom"><a href="#">Custom</a></li>
 				</ul>
       </div>
+      <!-- The game  -->
       <div class="col-md-11">
         <div class="container game">
           {{range .rows}}
-            <div class="row">
+          <div class="row" enum="{{.}}">
               {{range $cols}}
-                <div class="col-md-1 border game-cell">
+              <div class="col col-md-1 border game-cell" enum="{{.}}">
                   <div class="filler"></div>
                 </div>
               {{end}}
@@ -51,9 +53,215 @@
 </div>
 
 <script type="text/javascript" charset="utf-8">
-  $('.game-menu-custom').click(function() {
-    $('.game-cell').unbind('click').click(function() {
+  $('.game-menu-custom').click(function () {
+    $('.game-cell').unbind('click').click(function () {
       $(this).toggleClass('on')
     })
   })
+  $('.game-menu li').click(function(){
+    $(this).toggleClass('active')
+  })
+
+  Cell = (function() {
+    function Cell() {
+      var instance = this
+      var element  = null
+      var row      = null
+      var col      = null
+      var alive    = false
+
+      if (arguments.length === 2) {
+      } else if (arguments.length === 1) {
+        element = $(arguments[0])
+        row     = +element.closest('.row').attr('enum')
+        col     = +element.attr('enum')
+        alive   = element.hasClass('on')
+      }
+
+      instance.__defineGetter__('alive', function() {
+        return alive
+      })
+      instance.__defineGetter__('row', function() {
+        return row
+      })
+      instance.__defineGetter__('col', function() {
+        return col
+      })
+      instance.__defineGetter__('element', function() {
+        return element
+      })
+      instance.__defineSetter__('alive', function(_alive) {
+        alive = _alive
+        if (alive) {
+          element.addClass('on')
+        } else {
+          element.removeClass('on')
+        }
+      })
+    }
+
+    return Cell
+  })()
+
+  World = (function() {
+    function World(element) {
+      var instance   = this
+      var grid       = []
+      var timer      = null
+      var generation = 0
+      var population = 0
+
+      $(element).find('.row').each(function(i, row) {
+        grid.push([])
+        $(row).find('.game-cell').each(function(j, gameCell) {
+          var cell = new Cell(gameCell)
+          if(cell.alive) { population++ }
+          grid[i].push(cell)
+        })
+      })
+
+      instance.__defineGetter__('grid', function() {
+        return grid
+      })
+      instance.__defineGetter__('generation', function() {
+        return generation
+      })
+      instance.__defineGetter__('population', function() {
+        return population
+      })
+
+      function westCell(cell) {
+        var upperLimitX = grid[0].length - 1
+
+        neighborRow = cell.row
+        neighborCol = cell.col - 1
+        neighborCol = (neighborCol < 0 ? upperLimitX : neighborCol)
+
+        return grid[neighborRow][neighborCol]
+      }
+
+      function eastCell(cell) {
+        var upperLimitX = grid[0].length - 1
+
+        neighborRow = cell.row
+        neighborCol = cell.col + 1
+        neighborCol = (neighborCol > upperLimitX ? 0 : neighborCol)
+
+        return grid[neighborRow][neighborCol]
+      }
+
+      function northCell(cell) {
+        var upperLimitY = grid.length - 1
+
+        neighborRow = cell.row - 1
+        neighborCol = cell.col
+        neighborRow = (neighborRow < 0 ? upperLimitY : neighborRow)
+
+        return grid[neighborRow][neighborCol]
+      }
+
+      function southCell(cell) {
+        var upperLimitY = grid.length - 1
+
+        neighborRow = cell.row + 1
+        neighborCol = cell.col
+        neighborRow = (neighborRow > upperLimitY ? 0 : neighborRow)
+
+        return grid[neighborRow][neighborCol]
+      }
+
+      function northWestCell(cell) {
+        return westCell(northCell(cell))
+      }
+      function northEastCell(cell) {
+        return eastCell(northCell(cell))
+      }
+      function southWestCell(cell) {
+        return westCell(southCell(cell))
+      }
+      function southEastCell(cell) {
+        return eastCell(southCell(cell))
+      }
+
+      function neighbors(cell) {
+        var _neighbors = []
+        if (westCell(cell).alive) {
+          _neighbors.push(1)
+        }
+        if (northCell(cell).alive) {
+          _neighbors.push(1)
+        }
+        if (eastCell(cell).alive) {
+          _neighbors.push(1)
+        }
+        if (southCell(cell).alive) {
+          _neighbors.push(1)
+        }
+        if (northWestCell(cell).alive) {
+          _neighbors.push(1)
+        }
+        if (northEastCell(cell).alive) {
+          _neighbors.push(1)
+        }
+        if (southWestCell(cell).alive) {
+          _neighbors.push(1)
+        }
+        if (southEastCell(cell).alive) {
+          _neighbors.push(1)
+        }
+
+        return _neighbors
+      }
+
+      function willLive(cell) {
+        var _neighbors = neighbors(cell)
+
+        if (_neighbors.length < 2 || _neighbors.length > 3) {
+          return false
+        } else if (_neighbors.length >= 2 && _neighbors.length <= 3 && cell.alive) {
+          return true
+        } else if (_neighbors.length === 3 && !cell.alive) {
+          return true
+        }
+      }
+
+      function propagate() {
+        nextGeneration = []
+        newPop         = 0
+
+        grid.forEach(function(row, i) {
+          nextGeneration.push([])
+          row.forEach(function(cell, j) {
+            if (willLive(cell)) {
+              nextGeneration[i].push(true)
+              newPop++
+            } else {
+              nextGeneration[i].push(false)
+            }
+          })
+        })
+
+        nextGeneration.forEach(function(row, i) {
+          row.forEach(function(life, j) {
+            grid[i][j].alive = life
+          })
+        })
+
+        population = newPop
+        generation++
+      }
+
+      instance.start = function() {
+        timer = setInterval(function() {
+          propagate()
+        }, 500)
+      }
+      instance.stop = function() {
+        clearInterval(timer)
+      }
+    }
+
+    return World
+  })()
+
 </script>
