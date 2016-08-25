@@ -27,14 +27,6 @@ World = (function() {
     instance.__defineGetter__('population', function() {
       return population
     })
-    //****************************************************************
-    instance.__defineSetter__('generation', function(val) {
-      generation = val
-    })
-    //****************************************************************
-    instance.__defineSetter__('population', function(val) {
-      population = val
-    })
 
     //****************************************************************
     function westCell(cell) {
@@ -132,12 +124,14 @@ World = (function() {
     function updateGeneration(val) {
       if (typeof val === 'undefined') { var val = generation }
       $('.generation').text(val)
+      generation = val
     }
 
     //****************************************************************
     function updatePopulation(val) {
       if (typeof val === 'undefined') { var val = population }
       $('.population').text(val)
+      population = val
     }
 
     //****************************************************************
