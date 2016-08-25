@@ -130,13 +130,13 @@ World = (function() {
 
     //****************************************************************
     function updateGeneration(val) {
-      val = val || generation
+      if (typeof val === 'undefined') { var val = generation }
       $('.generation').text(val)
     }
 
     //****************************************************************
     function updatePopulation(val) {
-      val = val || population
+      if (typeof val === 'undefined') { var val = population }
       $('.population').text(val)
     }
 
