@@ -91,30 +91,30 @@ World = (function() {
 
     //****************************************************************
     function neighbors(cell) {
-      var _neighbors = []
+      var _neighbors = 0
       if (westCell(cell).alive) {
-        _neighbors.push(1)
+        _neighbors++
       }
       if (northCell(cell).alive) {
-        _neighbors.push(1)
+        _neighbors++
       }
       if (eastCell(cell).alive) {
-        _neighbors.push(1)
+        _neighbors++
       }
       if (southCell(cell).alive) {
-        _neighbors.push(1)
+        _neighbors++
       }
       if (northWestCell(cell).alive) {
-        _neighbors.push(1)
+        _neighbors++
       }
       if (northEastCell(cell).alive) {
-        _neighbors.push(1)
+        _neighbors++
       }
       if (southWestCell(cell).alive) {
-        _neighbors.push(1)
+        _neighbors++
       }
       if (southEastCell(cell).alive) {
-        _neighbors.push(1)
+        _neighbors++
       }
 
       return _neighbors
@@ -138,11 +138,11 @@ World = (function() {
     function willLive(cell) {
       var _neighbors = neighbors(cell)
 
-      if (_neighbors.length < 2 || _neighbors.length > 3) {
+      if (_neighbors < 2 || _neighbors > 3) {
         return false
-      } else if (_neighbors.length >= 2 && _neighbors.length <= 3 && cell.alive) {
+      } else if (_neighbors >= 2 && _neighbors <= 3 && cell.alive) {
         return true
-      } else if (_neighbors.length === 3 && !cell.alive) {
+      } else if (_neighbors === 3 && !cell.alive) {
         return true
       }
     }
@@ -217,11 +217,7 @@ World = (function() {
 
     grid.forEach(function(row, i) {
       row.forEach(function(alive, j) {
-        if (alive) {
-          world.grid[i][j].alive = true
-        } else {
-          world.grid[i][j].alive = false
-        }
+        world.grid[i][j].alive = alive
       })
     })
   }
