@@ -1,0 +1,22 @@
+{
+  "name": "go_revel_app",
+  "version": "1.0.0",
+  "description": "A web app using go, revel, and react",
+  "directories": {},
+  "dependencies": {},
+  "devDependencies": {
+    "react": "^15.3.1",
+    "webpack": "^1.13.2"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kylerchrdsn/go_revel_app.git"
+  },
+  "author": "Kyle Richardson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kylerchrdsn/go_revel_app/issues"
+  },
+  "homepage": "https://github.com/Kylerchrdsn/go_revel_app#readme"
+}

@@ -73,3 +73,11 @@ test
 We encourage you to contribute to Revel! Please check out the [Contributing to Revel
 guide](https://github.com/revel/revel/blob/master/CONTRIBUTING.md) for guidelines about how
 to proceed. [Join us](https://groups.google.com/forum/#!forum/revel-framework)!
+
+
+### Tech used in this project
+
+* go 1.5.1
+* node 6.5.0
+* npm 3.10.3
+* React 15.3.1
