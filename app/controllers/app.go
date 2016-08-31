@@ -22,3 +22,8 @@ func (c App) Index() revel.Result {
 func (c App) Palette() revel.Result {
 	return c.Render()
 }
+
+//******************************************
+func (c App) React() revel.Result {
+	return c.Render()
+}
