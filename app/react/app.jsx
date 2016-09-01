@@ -1,8 +1,12 @@
 import React from 'react'
 import { render } from 'react-dom'
+import Menu from './components/layout/menu.jsx'
 
 const App = () => (
-  <h1>Hello World</h1>
+  <div>
+    <Menu />
+    <h1>Hello World</h1>
+  </div>
 )
 
-render(<App />, document.getElementById('app'))
+render(<App />, document.querySelector('#app'))

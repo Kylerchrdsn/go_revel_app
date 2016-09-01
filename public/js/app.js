@@ -52,17 +52,26 @@
 
 	var _reactDom = __webpack_require__(34);
 
+	var _menu = __webpack_require__(172);
+
+	var _menu2 = _interopRequireDefault(_menu);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var App = function App() {
 	  return _react2.default.createElement(
-	    'h1',
+	    'div',
 	    null,
-	    'Hello World'
+	    _react2.default.createElement(_menu2.default, null),
+	    _react2.default.createElement(
+	      'h1',
+	      null,
+	      'Hello World'
+	    )
 	  );
 	};
 
-	(0, _reactDom.render)(_react2.default.createElement(App, null), document.getElementById('app'));
+	(0, _reactDom.render)(_react2.default.createElement(App, null), document.querySelector('#app'));
 
 /***/ },
 /* 1 */
@@ -21434,6 +21443,78 @@
 
 	module.exports = ReactDOMNullInputValuePropHook;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 172 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Menu = function Menu() {
+	  return _react2.default.createElement(
+	    "nav",
+	    { className: "navbar navbar-default menu" },
+	    _react2.default.createElement(
+	      "div",
+	      { className: "container-fluid" },
+	      _react2.default.createElement(
+	        "div",
+	        { className: "navbar-header" },
+	        _react2.default.createElement(
+	          "a",
+	          { className: "navbar-brand", href: "/" },
+	          "Go Revel"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "ul",
+	        { className: "nav navbar-nav" },
+	        _react2.default.createElement(
+	          "li",
+	          null,
+	          _react2.default.createElement(
+	            "a",
+	            { href: "/" },
+	            "Home ",
+	            _react2.default.createElement("span", { className: "glyphicon glyphicon-tent" })
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "li",
+	          null,
+	          _react2.default.createElement(
+	            "a",
+	            { href: "/Life/Index" },
+	            "Game of Life ",
+	            _react2.default.createElement("span", { className: "glyphicon glyphicon-adjust" })
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "li",
+	          null,
+	          _react2.default.createElement(
+	            "a",
+	            { href: "/App/Palette" },
+	            "Color Palette ",
+	            _react2.default.createElement("span", { className: "glyphicon glyphicon-tint" })
+	          )
+	        )
+	      )
+	    )
+	  );
+	};
+
+	exports.default = Menu;
 
 /***/ }
 /******/ ]);
