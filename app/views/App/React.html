@@ -1,9 +1,9 @@
 {{ set . "title" "React" }}
-{{ append . "moreScripts" "js/bundle.js" }}
 
 {{ template "header.html" . }}
 {{ template "menu.html" . }}
 
-<div id="app" />
+<div id="app"></div>
+<script src="/public/js/bundle.js" type="text/javascript" charset="utf-8"></script>
 
 {{template "footer.html" .}}
