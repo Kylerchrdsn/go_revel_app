@@ -27173,8 +27173,8 @@
 	        'div',
 	        { className: 'navbar-header' },
 	        _react2.default.createElement(
-	          'a',
-	          { className: 'navbar-brand', href: '/' },
+	          _reactRouter.Link,
+	          { className: 'navbar-brand', to: '/' },
 	          'Go Revel'
 	        )
 	      ),
@@ -27235,10 +27235,31 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Home = function Home() {
+	  var headerStyles = {
+	    backgroundColor: '#253494',
+	    marginBottom: 0
+	  };
+	  var h1Styles = {
+	    color: 'white'
+	  };
+
 	  return _react2.default.createElement(
-	    'h1',
-	    null,
-	    'Hello World'
+	    'header',
+	    { className: 'jumbotron', style: headerStyles },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'container' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'row' },
+	        _react2.default.createElement(
+	          'h1',
+	          { style: h1Styles },
+	          'Konichiwa, World ',
+	          _react2.default.createElement('span', { className: 'glyphicon glyphicon-globe' })
+	        )
+	      )
+	    )
 	  );
 	};
 
@@ -27287,10 +27308,86 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Palette = function Palette() {
+	  var contain = {
+	    height: 'calc(100% - 50px)',
+	    width: '100%',
+	    padding: 0,
+	    margin: 0
+	  };
+	  var row = {
+	    width: '100%',
+	    margin: 0,
+	    padding: 0,
+	    fontSize: '3em',
+	    fontWeight: 'bold'
+	  };
+	  var one = {
+	    background: '#ffffcc',
+	    color: '#253494'
+	  };
+	  var two = {
+	    background: '#a1dab4',
+	    color: '#2c7fb8'
+	  };
+	  var three = {
+	    background: '#41b6c4',
+	    color: '#253494'
+	  };
+	  var four = {
+	    background: '#2c7fb8',
+	    color: '#a1dab4'
+	  };
+	  var five = {
+	    background: '#253494',
+	    color: '#ffffcc'
+	  };
+	  var six = {
+	    background: '#dcdcdc',
+	    color: '#000000'
+	  };
+
+	  document.querySelector('.navbar-default').style.margin = 0;
+	  document.querySelectorAll('html, body, .row, [class^=col]').forEach(function (item, x) {
+	    item.style.height = '100%';
+	  });
+
 	  return _react2.default.createElement(
-	    'h1',
-	    null,
-	    'Palette'
+	    'div',
+	    { className: 'container', style: contain },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'row', style: row },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'col-md-2 one', style: one },
+	        '#ffffcc'
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'col-md-2 two', style: two },
+	        '#a1dab4'
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'col-md-2 three', style: three },
+	        '#41b6c4'
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'col-md-2 four', style: four },
+	        '#2c7fb8'
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'col-md-2 five', style: five },
+	        '#253494'
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'col-md-2 six', style: six },
+	        '#dcdcdc'
+	      )
+	    )
 	  );
 	};
 

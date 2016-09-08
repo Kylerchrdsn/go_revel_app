@@ -5,9 +5,9 @@ const Menu = () => (
   <nav className="navbar navbar-default menu">
     <div className="container-fluid">
       <div className="navbar-header">
-        <a className="navbar-brand" href="/">
+        <Link className="navbar-brand" to="/">
           Go Revel
-        </a>
+        </Link>
       </div>
       <ul className="nav navbar-nav">
         <li>
