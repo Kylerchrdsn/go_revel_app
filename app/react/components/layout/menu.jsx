@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import { Link } from 'react-router'
 
 const Menu = () => (
   <nav className="navbar navbar-default menu">
@@ -10,19 +11,19 @@ const Menu = () => (
       </div>
       <ul className="nav navbar-nav">
         <li>
-          <a href="/">
+          <Link to="/">
             Home <span className="glyphicon glyphicon-tent"></span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/Life/Index">
+          <Link to="gameOfLife">
             Game of Life <span className="glyphicon glyphicon-adjust"></span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/App/Palette">
+          <Link to="palette">
             Color Palette <span className="glyphicon glyphicon-tint"></span>
-          </a>
+          </Link>
         </li>
       </ul>
     </div>

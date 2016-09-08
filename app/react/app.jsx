@@ -1,12 +1,20 @@
 import React from 'react'
 import { render } from 'react-dom'
-import Menu from './components/layout/menu.jsx'
+import { Router, Route, IndexRoute, hashHistory } from 'react-router'
 
-const App = () => (
-  <div>
-    <Menu />
-    <h1>Hello World</h1>
-  </div>
-)
+import Layout from './components/layout/layout.jsx'
+import Home from './pages/home.jsx'
+import GameOfLife from './pages/gameOfLife.jsx'
+import Palette from './pages/palette.jsx'
 
-render(<App />, document.querySelector('#app'))
+const app = document.querySelector('#app')
+
+render(
+  <Router history={ hashHistory }>
+    <Route path="/" component={ Layout }>
+      <IndexRoute component={ Home } />
+      <Route component={ GameOfLife } path="gameOfLife" />
+      <Route component={ Palette } path="palette" />
+    </Route>
+  </Router>,
+app)
