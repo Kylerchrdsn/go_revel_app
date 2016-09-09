@@ -27122,7 +27122,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _menu = __webpack_require__(236);
+	var _menu = __webpack_require__(240);
 
 	var _menu2 = _interopRequireDefault(_menu);
 
@@ -27145,80 +27145,7 @@
 	exports.default = Layout;
 
 /***/ },
-/* 236 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(172);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var Menu = function Menu() {
-	  return _react2.default.createElement(
-	    'nav',
-	    { className: 'navbar navbar-default menu' },
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'container-fluid' },
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'navbar-header' },
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { className: 'navbar-brand', to: '/' },
-	          'Go Revel'
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'ul',
-	        { className: 'nav navbar-nav' },
-	        _react2.default.createElement(
-	          'li',
-	          null,
-	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: '/' },
-	            'Home ',
-	            _react2.default.createElement('span', { className: 'glyphicon glyphicon-tent' })
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'li',
-	          null,
-	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: 'gameOfLife' },
-	            'Game of Life ',
-	            _react2.default.createElement('span', { className: 'glyphicon glyphicon-adjust' })
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'li',
-	          null,
-	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: 'palette' },
-	            'Color Palette ',
-	            _react2.default.createElement('span', { className: 'glyphicon glyphicon-tint' })
-	          )
-	        )
-	      )
-	    )
-	  );
-	};
-
-	exports.default = Menu;
-
-/***/ },
+/* 236 */,
 /* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -27316,6 +27243,7 @@
 	  };
 	  var row = {
 	    width: '100%',
+	    height: '100%',
 	    margin: 0,
 	    padding: 0,
 	    fontSize: '3em',
@@ -27323,33 +27251,34 @@
 	  };
 	  var one = {
 	    background: '#ffffcc',
+	    height: '100%',
 	    color: '#253494'
 	  };
 	  var two = {
 	    background: '#a1dab4',
+	    height: '100%',
 	    color: '#2c7fb8'
 	  };
 	  var three = {
 	    background: '#41b6c4',
+	    height: '100%',
 	    color: '#253494'
 	  };
 	  var four = {
 	    background: '#2c7fb8',
+	    height: '100%',
 	    color: '#a1dab4'
 	  };
 	  var five = {
 	    background: '#253494',
+	    height: '100%',
 	    color: '#ffffcc'
 	  };
 	  var six = {
 	    background: '#dcdcdc',
+	    height: '100%',
 	    color: '#000000'
 	  };
-
-	  document.querySelector('.navbar-default').style.margin = 0;
-	  document.querySelectorAll('html, body, .row, [class^=col]').forEach(function (item, x) {
-	    item.style.height = '100%';
-	  });
 
 	  return _react2.default.createElement(
 	    'div',
@@ -27392,6 +27321,111 @@
 	};
 
 	exports.default = Palette;
+
+/***/ },
+/* 240 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(172);
+
+	var _navLink = __webpack_require__(241);
+
+	var _navLink2 = _interopRequireDefault(_navLink);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Menu = function Menu() {
+	  return _react2.default.createElement(
+	    'nav',
+	    { className: 'navbar navbar-default menu' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'container-fluid' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'navbar-header' },
+	        _react2.default.createElement(
+	          _reactRouter.IndexLink,
+	          { className: 'navbar-brand', to: '/' },
+	          'Go Revel'
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'ul',
+	        { className: 'nav navbar-nav' },
+	        _react2.default.createElement(
+	          _navLink2.default,
+	          { to: '/' },
+	          'Home ',
+	          _react2.default.createElement('span', { className: 'glyphicon glyphicon-tent' })
+	        ),
+	        _react2.default.createElement(
+	          _navLink2.default,
+	          { to: 'gameOfLife' },
+	          'Game of Life ',
+	          _react2.default.createElement('span', { className: 'glyphicon glyphicon-adjust' })
+	        ),
+	        _react2.default.createElement(
+	          _navLink2.default,
+	          { to: 'palette' },
+	          'Color Palette ',
+	          _react2.default.createElement('span', { className: 'glyphicon glyphicon-tint' })
+	        )
+	      )
+	    )
+	  );
+	};
+
+	exports.default = Menu;
+
+/***/ },
+/* 241 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(172);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var NavLink = function NavLink(_ref) {
+	  var children = _ref.children;
+	  var to = _ref.to;
+	  return _react2.default.createElement(
+	    'li',
+	    null,
+	    _react2.default.createElement(
+	      _reactRouter.Link,
+	      { to: to },
+	      children
+	    )
+	  );
+	};
+
+	NavLink.propTypes = {
+	  children: _react.PropTypes.any,
+	  to: _react.PropTypes.string.isRequired
+	};
+
+	exports.default = NavLink;
 
 /***/ }
 /******/ ]);

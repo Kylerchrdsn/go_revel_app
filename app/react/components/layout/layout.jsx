@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import Menu from './menu.jsx'
+import Menu from '../nav/menu.jsx'
 
 const Layout = ({ children }) => (
   <div>

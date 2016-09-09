@@ -9,6 +9,7 @@ const Palette = () => {
   }
   const row = {
     width: '100%',
+    height: '100%',
     margin: 0,
     padding: 0,
     fontSize: '3em',
@@ -16,35 +17,34 @@ const Palette = () => {
   }
   const one = {
     background: '#ffffcc',
+    height: '100%',
     color: '#253494'
   }
   const two = {
     background: '#a1dab4',
+    height: '100%',
     color: '#2c7fb8'
   }
   const three = {
     background: '#41b6c4',
+    height: '100%',
     color: '#253494'
   }
   const four = {
     background: '#2c7fb8',
+    height: '100%',
     color: '#a1dab4'
   }
   const five = {
     background: '#253494',
+    height: '100%',
     color: '#ffffcc'
   }
   const six = {
     background: '#dcdcdc',
+    height: '100%',
     color: '#000000'
   }
-
-  document.querySelector('.navbar-default').style.margin = 0
-  document.querySelectorAll(
-    'html, body, .row, [class^=col]'
-  ).forEach(function(item, x) {
-    item.style.height = '100%'
-  })
 
   return (
     <div className="container" style={ contain }>
