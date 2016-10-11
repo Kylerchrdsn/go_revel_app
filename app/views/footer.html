@@ -1,5 +1,8 @@
-  {{if eq .RunMode "dev"}}
-    {{template "debug.html" .}}
-  {{end}}
-  </body>
-</html>
+{{if eq .RunMode "dev"}}
+  {{template "debug.html" .}}
+{{end}}
+
+<!-- Other scripts -->
+{{range .moreScripts}}
+  <script src="/public/{{.}}" type="text/javascript" charset="utf-8"></script>
+{{end}}
