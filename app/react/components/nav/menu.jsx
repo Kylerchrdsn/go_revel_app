@@ -3,8 +3,8 @@ import { Link, IndexLink } from 'react-router'
 import NavLink from './navLink.jsx'
 
 const Menu = () => (
-  <nav className="navbar navbar-default menu">
-    <div className="container-fluid">
+  <header className="navbar navbar-default menu">
+    <nav className="container-fluid">
       <div className="navbar-header">
         <IndexLink className="navbar-brand" to="/">
           Go Revel
@@ -21,8 +21,8 @@ const Menu = () => (
           Color Palette <span className="glyphicon glyphicon-tint"></span>
         </NavLink>
       </ul>
-    </div>
-  </nav>
+    </nav>
+  </header>
 )
 
 export default Menu

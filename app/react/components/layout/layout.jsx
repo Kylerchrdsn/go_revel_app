@@ -2,10 +2,10 @@ import React, { PropTypes } from 'react'
 import Menu from '../nav/menu.jsx'
 
 const Layout = ({ children }) => (
-  <div>
+  <main>
     <Menu />
     { children }
-  </div>
+  </main>
 )
 
 Layout.propTypes = {

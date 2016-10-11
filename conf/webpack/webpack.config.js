@@ -11,11 +11,17 @@ var config = {
     filename: 'app.js'
   },
   module: {
-    loaders: [{
-      test: /\.jsx?/,
-      include: APP_DIR,
-      loader: 'babel'
-    }]
+    loaders: [
+      {
+        test: /\.jsx?/,
+        include: APP_DIR,
+        loader: 'babel'
+      },
+      {
+        test: /\.css$/,
+        loader: "style-loader!css-loader"
+      }
+    ]
   }
 };
 
