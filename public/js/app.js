@@ -72,11 +72,11 @@
 
 	var _gameOfLife2 = _interopRequireDefault(_gameOfLife);
 
-	var _palette = __webpack_require__(267);
+	var _palette = __webpack_require__(269);
 
 	var _palette2 = _interopRequireDefault(_palette);
 
-	var _gameBoard = __webpack_require__(268);
+	var _gameBoard = __webpack_require__(270);
 
 	var _gameBoard2 = _interopRequireDefault(_gameBoard);
 
@@ -29180,20 +29180,215 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _gameRow = __webpack_require__(267);
+
+	var _gameRow2 = _interopRequireDefault(_gameRow);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var GameOfLife = function GameOfLife() {
+	var GameOfLife = function GameOfLife(_ref) {
+	  var gameBoard = _ref.gameBoard;
+
 	  return _react2.default.createElement(
-	    'h1',
-	    null,
-	    'Game Of Life'
+	    'div',
+	    { className: 'container main', style: { position: 'relative' } },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'container' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'row' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'col-md-1 game-menu' },
+	          _react2.default.createElement(
+	            'ul',
+	            { className: 'nav nav-stacked' },
+	            _react2.default.createElement(
+	              'li',
+	              { className: 'game-menu-custom' },
+	              _react2.default.createElement(
+	                'a',
+	                { href: '#' },
+	                'Custom'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'li',
+	              { className: 'game-menu-glider' },
+	              _react2.default.createElement(
+	                'a',
+	                { href: '#' },
+	                'Glider'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'li',
+	              { className: 'game-menu-seed' },
+	              _react2.default.createElement(
+	                'a',
+	                { href: '#' },
+	                'Seed'
+	              )
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'col-md-1' },
+	          _react2.default.createElement(
+	            'ul',
+	            { className: 'nav nav-stacked game-menu-2' },
+	            _react2.default.createElement(
+	              'li',
+	              { className: 'game-start' },
+	              _react2.default.createElement(
+	                'a',
+	                { href: '#' },
+	                'Start ',
+	                _react2.default.createElement('span', { className: 'glyphicon glyphicon-play' })
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'li',
+	              { className: 'game-stop' },
+	              _react2.default.createElement(
+	                'a',
+	                { href: '#' },
+	                'Stop ',
+	                _react2.default.createElement('span', { className: 'glyphicon glyphicon-stop' })
+	              )
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'col-md-2' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'stats' },
+	            _react2.default.createElement(
+	              'h1',
+	              null,
+	              'Generation'
+	            ),
+	            _react2.default.createElement(
+	              'span',
+	              { className: 'generation' },
+	              '0'
+	            ),
+	            _react2.default.createElement(
+	              'h1',
+	              null,
+	              'Population'
+	            ),
+	            _react2.default.createElement(
+	              'span',
+	              { className: 'population' },
+	              '0'
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'col-md-8' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'container game' },
+	            gameBoard.map(function (row, rowIndex) {
+	              return _react2.default.createElement(_gameRow2.default, { index: rowIndex, key: rowIndex });
+	            })
+	          )
+	        )
+	      )
+	    )
 	  );
 	};
+
+	GameOfLife.propTypes = {
+	  gameBoard: _react.PropTypes.array.isRequired
+	};
+
+	function mapStateToProps(state) {
+	  return state;
+	}
 
 	exports.default = GameOfLife;
 
 /***/ },
 /* 267 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _gameCol = __webpack_require__(268);
+
+	var _gameCol2 = _interopRequireDefault(_gameCol);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var GameRow = function GameRow(_ref) {
+	  var index = _ref.index;
+
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'row', 'enum': index },
+	    _react2.default.createElement(_gameCol2.default, { key: j, index: j })
+	  );
+	};
+
+	GameRow.propTypes = {
+	  index: _react.PropTypes.number.isRequired
+	};
+
+	exports.default = GameRow;
+
+/***/ },
+/* 268 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var GameCol = function GameCol(_ref) {
+	  var index = _ref.index;
+
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "col col-md-1 border game-cell", "enum": index },
+	    _react2.default.createElement("div", { classname: "filler" })
+	  );
+	};
+
+	GameCol.propTypes = {
+	  index: _react.PropTypes.number.isRequired
+	};
+
+	function mapStateToProps(state) {
+	  return state;
+	}
+
+	exports.default = GameCol;
+
+/***/ },
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29297,7 +29492,7 @@
 	exports.default = Palette;
 
 /***/ },
-/* 268 */
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29307,15 +29502,36 @@
 	});
 	exports.default = gameBoard;
 
-	var _gameBoardActionTypes = __webpack_require__(269);
+	var _gameBoardActionTypes = __webpack_require__(271);
 
 	var types = _interopRequireWildcard(_gameBoardActionTypes);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-	function gameBoard() {
-	  var state = arguments.length <= 0 || arguments[0] === undefined ? [] : arguments[0];
+	function initRow(rowNum) {
+	  var row = [];
+
+	  for (var colNum = 0; colNum < 12; colNum++) {
+	    row.push({ row: rowNum, col: colNum, alive: false });
+	  }
+
+	  return row;
+	}
+
+	function initState() {
+	  var rows = [];
+
+	  for (var rowNum = 0; rowNum > 12; rowNum++) {
+	    rows.push(initRow(rowNum));
+	  }
+
+	  return rows;
+	}
+
+	function gameBoard(state) {
 	  var action = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+
+	  state = state || initState();
 
 	  switch (action.type) {
 	    case types.TOGGLE_CELL_STATE:
@@ -29328,7 +29544,7 @@
 	}
 
 /***/ },
-/* 269 */
+/* 271 */
 /***/ function(module, exports) {
 
 	'use strict';
