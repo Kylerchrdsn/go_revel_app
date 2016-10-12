@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "A web app using go, revel, and react",
   "directories": {},
-  "dependencies": {},
+  "dependencies": {
+    "react-router-redux": "^4.0.6"
+  },
   "devDependencies": {
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
@@ -13,6 +15,7 @@
     "react-dom": "^15.3.1",
     "react-redux": "^4.4.5",
     "react-router": "^2.7.0",
+    "react-router-redux": "^4.0.6",
     "redux": "^3.6.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2"
