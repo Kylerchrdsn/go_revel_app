@@ -1,4 +1,4 @@
-import * as types from '../constants/gameBoard-action-types.jsx'
+import * as types from '../constants/game-board-action-types.jsx'
 
 function initRow(rowNum) {
   var row = []
@@ -13,7 +13,7 @@ function initRow(rowNum) {
 function initState() {
   var rows = []
 
-  for (var rowNum = 0; rowNum > 12; rowNum++) {
+  for (var rowNum = 0; rowNum < 12; rowNum++) {
     rows.push(initRow(rowNum))
   }
 

@@ -19,7 +19,7 @@ var config = {
       },
       {
         test: /\.css$/,
-        loader: "style-loader!css-loader"
+        loader: 'style-loader!css-loader?importLoaders=1&camelCase&modules&localIdentName=[path]___[name]__[local]___[hash:base64:5]!postcss-loader'
       }
     ]
   }
