@@ -14,16 +14,15 @@ func init() {
 
 //******************************************
 func (c App) Index() revel.Result {
-	var greeting string = "Konichiwa World"
-	return c.Render(greeting)
+	return c.Render()
 }
 
 //******************************************
 func (c App) Palette() revel.Result {
-	return c.Render()
+	return c.RenderTemplate("App/Index.html")
 }
 
 //******************************************
-func (c App) React() revel.Result {
-	return c.Render()
+func (c App) GameOfLife() revel.Result {
+	return c.RenderTemplate("App/Index.html")
 }
