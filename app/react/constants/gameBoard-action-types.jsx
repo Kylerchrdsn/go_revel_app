@@ -1,0 +1,2 @@
+export const TOGGLE_CELL_STATE = 'TOGGLE_CELL_STATE'
+export const ITERATE_WORLD = 'ITERATE_WORLD'
