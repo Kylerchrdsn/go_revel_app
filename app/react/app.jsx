@@ -10,7 +10,7 @@ import Home from './pages/home.jsx'
 import GameOfLife from './pages/gameOfLife.jsx'
 import Palette from './pages/palette.jsx'
 
-import gameBoardReducer from './reducers/gameBoard.jsx'
+import gameBoardReducer from './reducers/game-board.jsx'
 
 const app = document.querySelector('#app')
 const store = createStore(
