@@ -11,10 +11,12 @@ import GameOfLife from './pages/gameOfLife.jsx'
 import Palette from './pages/palette.jsx'
 
 import gameBoardReducer from './reducers/game-board.jsx'
+import gameReducer from './reducers/game.jsx'
 
 const app = document.querySelector('#app')
 const store = createStore(
   combineReducers({
+    game: gameReducer,
     gameBoard: gameBoardReducer,
     routing: routerReducer
   })
